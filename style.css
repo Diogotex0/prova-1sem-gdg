@@ -106,3 +106,15 @@ h1 {
 .btn-remover:hover {
     background-color: #b71c1c;
 }
+
+#lista-tarefas li.concluida {
+    background-color: #e8f5e9;
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+@media (max-width: 480px) {
+    .formulario {
+        flex-direction: column;
+    }
+}
