@@ -34,3 +34,30 @@ function criaLista() {
     document.getElementById('lista-tarefas').innerHTML = lista;
     atualizarContadores();
 }
+
+// Função para excluir tarefa
+function excluir(i) {
+    dadosTarefas.splice(i, 1);
+    criaLista();
+}
+
+// Função para concluir tarefa
+function concluir(i) {
+    dadosTarefas[i].concluida = !dadosTarefas[i].concluida;
+    criaLista();
+}
+
+// Função para atualizar contadores
+function atualizarContadores() {
+    var pendentes = 0;
+    var concluidas = 0;
+    for (var i = 0; i < dadosTarefas.length; i++) {
+        if (dadosTarefas[i].concluida) {
+            concluidas++;
+        } else {
+            pendentes++;
+        }
+    }
+    document.getElementById('contador-pendentes').textContent = pendentes;
+    document.getElementById('contador-concluidas').textContent = concluidas;
+}
