@@ -1,0 +1,13 @@
+{
+  "name": "template_prova_1BI_ADS-ESOFT-3SEM",
+  "version": "1.0.0",
+  "description": "Template de Prova Prática - ADS e ESOFT",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}
