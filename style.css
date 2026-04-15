@@ -3,3 +3,17 @@
  * 1. Utilize Flexbox ou Grid para organizar o layout.
  * 2. Utilize a pseudo-classe :hover nos botões para feedback visual.
  */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
