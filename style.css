@@ -60,3 +60,23 @@ h1 {
 #btn-adicionar:hover {
     background-color: #388E3C;
 }
+
+.contadores {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: #555;
+}
+
+#lista-tarefas {
+    list-style: none;
+}
+
+#lista-tarefas li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem;
+    border-bottom: 1px solid #eee;
+}
