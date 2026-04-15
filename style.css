@@ -109,6 +109,9 @@ h1 {
 
 #lista-tarefas li.concluida {
     background-color: #e8f5e9;
+}
+
+#lista-tarefas li.concluida .texto-tarefa {
     text-decoration: line-through;
     color: #aaa;
 }

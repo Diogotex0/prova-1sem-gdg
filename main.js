@@ -28,7 +28,7 @@ function criaLista() {
     for (var i = 0; i <= dadosTarefas.length - 1; i++) {
         var classeConcluida = dadosTarefas[i].concluida ? "class='concluida'" : "";
         var textoBotao = dadosTarefas[i].concluida ? "Reabrir" : "Concluir";
-        lista += "<li " + classeConcluida + ">" + dadosTarefas[i].texto +
+        lista += "<li " + classeConcluida + "><span class='texto-tarefa'>" + dadosTarefas[i].texto + "</span>" +
             " <button class='btn-concluir' onclick='concluir(" + i + ")'>" + textoBotao + "</button>" +
             " <button class='btn-remover' onclick='excluir(" + i + ")'>Remover</button>" +
             "</li>";
