@@ -1,0 +1,50 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Critério 1 - Estrutura HTML
+      id: criterio-1-estrutura-html
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Critério 1 - Estrutura HTML
+        setup-command: npm install
+        command: npx jest __tests__/criterio1-html.test.js
+        timeout: 10
+        max-score: 2
+    - name: Critério 2 - Especificações do CSS
+      id: criterio-2-especificacoes-do-css
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Critério 2 - Especificações do CSS
+        setup-command: ''
+        command: npx jest __tests__/criterio2-css.test.js
+        timeout: 10
+        max-score: 2
+    - name: Critério 4 - Funcionalidades (JS)
+      id: criterio-4-funcionalidades-js
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Critério 4 - Funcionalidades (JS)
+        setup-command: ''
+        command: npx jest __tests__/criterio4-logica.test.js
+        timeout: 10
+        max-score: 2
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        CRITERIO-1-ESTRUTURA-HTML_RESULTS: "${{steps.criterio-1-estrutura-html.outputs.result}}"
+        CRITERIO-2-ESPECIFICACOES-DO-CSS_RESULTS: "${{steps.criterio-2-especificacoes-do-css.outputs.result}}"
+        CRITERIO-4-FUNCIONALIDADES-JS_RESULTS: "${{steps.criterio-4-funcionalidades-js.outputs.result}}"
+      with:
+        runners: criterio-1-estrutura-html,criterio-2-especificacoes-do-css,criterio-4-funcionalidades-js
