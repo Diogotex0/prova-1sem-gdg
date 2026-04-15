@@ -26,8 +26,10 @@ document.getElementById('btn-adicionar').addEventListener('click', adicionarTare
 function criaLista() {
     var lista = "";
     for (var i = 0; i <= dadosTarefas.length - 1; i++) {
-        lista += "<li>" + dadosTarefas[i].texto +
-            " <button class='btn-concluir' onclick='concluir(" + i + ")'>Concluir</button>" +
+        var classeConcluida = dadosTarefas[i].concluida ? "class='concluida'" : "";
+        var textoBotao = dadosTarefas[i].concluida ? "Reabrir" : "Concluir";
+        lista += "<li " + classeConcluida + ">" + dadosTarefas[i].texto +
+            " <button class='btn-concluir' onclick='concluir(" + i + ")'>" + textoBotao + "</button>" +
             " <button class='btn-remover' onclick='excluir(" + i + ")'>Remover</button>" +
             "</li>";
     }
