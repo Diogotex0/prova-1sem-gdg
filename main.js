@@ -21,3 +21,16 @@ function adicionarTarefa() {
 }
 
 document.getElementById('btn-adicionar').addEventListener('click', adicionarTarefa);
+
+// Função para criar a lista de tarefas no DOM
+function criaLista() {
+    var lista = "";
+    for (var i = 0; i <= dadosTarefas.length - 1; i++) {
+        lista += "<li>" + dadosTarefas[i].texto +
+            " <button class='btn-concluir' onclick='concluir(" + i + ")'>Concluir</button>" +
+            " <button class='btn-remover' onclick='excluir(" + i + ")'>Remover</button>" +
+            "</li>";
+    }
+    document.getElementById('lista-tarefas').innerHTML = lista;
+    atualizarContadores();
+}
