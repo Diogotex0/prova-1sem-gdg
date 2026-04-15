@@ -42,12 +42,14 @@ function excluir(i) {
     dadosTarefas.splice(i, 1);
     criaLista();
 }
+window.excluir = excluir;
 
 // Função para concluir tarefa
 function concluir(i) {
     dadosTarefas[i].concluida = !dadosTarefas[i].concluida;
     criaLista();
 }
+window.concluir = concluir;
 
 // Função para atualizar contadores
 function atualizarContadores() {
